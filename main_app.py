@@ -7,6 +7,7 @@ from calculadora_financeira import calcular_abusividade, calcular_tabela_price, 
 from config import MODALIDADES_BACEN
 from typing import Dict, Union
 
+
 # --- FUNÇÃO DE FORMATAÇÃO MONETÁRIA BRASILEIRA (R$ X.XXX,XX) ---
 def formatar_moeda_br(valor):
     """Formata um valor float para o padrão monetário brasileiro como string."""
@@ -15,6 +16,8 @@ def formatar_moeda_br(valor):
         # e o ponto por vírgula (decimal)
         return f"R$ {valor:,.2f}".replace(",", "_TEMP_").replace(".", ",").replace("_TEMP_", ".")
     return valor
+
+
 # --- FIM FUNÇÃO DE FORMATAÇÃO ---
 
 # --- Configuração da Página ---
@@ -91,7 +94,20 @@ with st.form("form_contrato"):
             help="Defina um percentual de tolerância diferente para testar outras teses judiciais."
         )
 
-    # 3. Botão de Submissão
+    # ----------------------------------------------------
+    # 3. CAMPO DE UPLOAD DO ARQUIVO PDF (NOVO)
+    # ----------------------------------------------------
+    st.markdown("---")
+
+    arquivo_pdf = st.file_uploader(
+        "Upload do Contrato (PDF) para Análise de IA (Futuro)",
+        type=['pdf'],
+        help="A função de leitura automática do contrato será implementada em breve."
+    )
+
+    # ----------------------------------------------------
+
+    # 4. Botão de Submissão
     submitted = st.form_submit_button("Calcular Abusividade")
 
 # --- TRATAMENTO DOS DADOS FORA DO FORMULÁRIO (DEPOIS DA SUBMISSÃO) ---
@@ -248,7 +264,7 @@ if submitted and principal > 0:
         # --- FIM NOVO BLOCO ---
 
         st.dataframe(
-            df_final, # Passa o DataFrame já formatado como string
+            df_final,  # Passa o DataFrame já formatado como string
             use_container_width=True,
             # Não é mais necessário usar column_config.NumberColumn, pois os dados são strings formatadas
         )
