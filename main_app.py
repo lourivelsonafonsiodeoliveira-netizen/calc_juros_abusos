@@ -27,7 +27,6 @@ st.set_page_config(
 st.title("⚖️ Calculadora Revisional de Juros")
 st.markdown(
     "Use esta ferramenta para analisar contratos de crédito e identificar o valor dos juros abusivos cobrados acima da média de mercado (BACEN), simulando as principais teses judiciais.")
-st.warning("⚠️ Lembre-se de instalar as libs: `requests`, `numpy` e `numpy-financial`.")
 
 # --- Área de Input (Formulário) ---
 st.header("Dados do Contrato")
