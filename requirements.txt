@@ -1,0 +1,6 @@
+# Arquivo: requirements.txt
+requests
+numpy
+numpy-financial
+streamlit
+streamlit-masked-input  # <-- ADICIONE ESTA LINHA

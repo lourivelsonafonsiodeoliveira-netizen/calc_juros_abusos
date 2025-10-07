@@ -1,0 +1,8 @@
+# .gitignore
+# Virtual environment
+venv/
+.idea/
+__pycache__/
+*.pyc
+# Streamlit config files
+.streamlit/
