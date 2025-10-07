@@ -25,14 +25,20 @@ st.set_page_config(
     page_title="Calculadora de Juros Abusivos",
     layout="wide"  # Layout wide para acomodar 3 colunas
 )
+st.image("images/logo.png", width=800) # RESTAURADO: Carregamento da imagem local
 
-# --- Título e Descrição ---
-st.title("⚖️ Calculadora Revisional de Juros")
+# --- Título e Descrição (Com cor Dourada) ---
+# O título principal (⚖️ Calculadora Revisional de Juros) fica dourado
+st.markdown("<h1 style='text-align: center; color: #FFD700;'>⚖️ Calculadora Revisional de Juros</h1>", unsafe_allow_html=True)
+# O texto descritivo fica um cinza claro para manter a elegância (FAFAFA é um branco suave)
 st.markdown(
-    "Use esta ferramenta para analisar contratos de crédito e identificar o valor dos juros abusivos cobrados acima da média de mercado (BACEN), simulando as principais teses judiciais.")
+    "<p style='text-align: center; color: #FAFAFA;'>Use esta ferramenta para analisar contratos de crédito e identificar o valor dos juros abusivos cobrados acima da média de mercado (BACEN), simulando as principais teses judiciais.</p>",
+    unsafe_allow_html=True
+)
 
 # --- Área de Input (Formulário) ---
-st.header("Dados do Contrato")
+st.markdown("---")
+st.markdown("<h2 style='color: #FFD700;'>Dados do Contrato</h2>", unsafe_allow_html=True)
 
 # Variáveis definidas antes do formulário para evitar erros de escopo
 principal = 0.0
